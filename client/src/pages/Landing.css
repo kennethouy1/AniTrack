@@ -1,0 +1,81 @@
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  color: #fff;
+}
+
+.landing-title {
+  font-size: 3rem;
+  color: #e63946;
+  margin-bottom: 0;
+}
+
+.landing-subtitle {
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+.landing-form {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 320px;
+}
+
+.landing-form h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.landing-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: #fff;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.landing-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.landing-button:hover {
+  background-color: #c1121f;
+}
+
+.landing-error {
+  color: #e63946;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.landing-toggle {
+  text-align: center;
+  margin-top: 1rem;
+  color: #aaa;
+}
+
+.landing-link {
+  color: #e63946;
+  cursor: pointer;
+}
+
+.landing-link:hover {
+  text-decoration: underline;
+}
