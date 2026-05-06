@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import './Search.css'
 
 function Search() {
   const [query, setQuery] = useState('')
@@ -35,33 +36,33 @@ function Search() {
   }
 
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>
-        <h1 style={styles.title}>Search Anime</h1>
-        <button style={styles.backBtn} onClick={() => navigate('/dashboard')}>Back to Dashboard</button>
+    <div className="search-container">
+      <div className="search-header">
+        <h1 className="search-title">Search Anime</h1>
+        <button className="search-back-btn" onClick={() => navigate('/dashboard')}>Back to Dashboard</button>
       </div>
-      <form onSubmit={handleSearch} style={styles.form}>
+      <form onSubmit={handleSearch} className="search-form">
         <input
-          style={styles.input}
+          className="search-input"
           type="text"
           placeholder="Search for an anime..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button style={styles.button} type="submit">Search</button>
+        <button className="search-btn" type="submit">Search</button>
       </form>
-      {loading && <p style={styles.loading}>Searching...</p>}
-      <div style={styles.results}>
+      {loading && <p className="search-loading">Searching...</p>}
+      <div className="search-results">
         {results.map((anime) => (
-          <div key={anime.mal_id} style={styles.card}>
-            <img src={anime.images.jpg.image_url} alt={anime.title} style={styles.image} />
-            <div style={styles.info}>
-              <h3 style={styles.animTitle}>{anime.title}</h3>
-              <p style={styles.meta}>{anime.episodes} episodes • {anime.status}</p>
-              <p style={styles.synopsis}>{anime.synopsis?.slice(0, 100)}...</p>
-              <div style={styles.cardButtons}>
-                <button style={styles.addBtn} onClick={() => handleAdd(anime.mal_id)}>+ Add to Watchlist</button>
-                <button style={styles.detailBtn} onClick={() => navigate(`/anime/${anime.mal_id}`)}>View Details</button>
+          <div key={anime.mal_id} className="search-card">
+            <img src={anime.images.jpg.image_url} alt={anime.title} className="search-card-image" />
+            <div className="search-card-info">
+              <h3 className="search-card-title">{anime.title}</h3>
+              <p className="search-card-meta">{anime.episodes} episodes • {anime.status}</p>
+              <p className="search-card-synopsis">{anime.synopsis?.slice(0, 100)}...</p>
+              <div className="search-card-buttons">
+                <button className="search-add-btn" onClick={() => handleAdd(anime.mal_id)}>+ Add to Watchlist</button>
+                <button className="search-detail-btn" onClick={() => navigate(`/anime/${anime.mal_id}`)}>View Details</button>
               </div>
             </div>
           </div>
@@ -69,27 +70,6 @@ function Search() {
       </div>
     </div>
   )
-}
-
-const styles = {
-  container: { minHeight: '100vh', backgroundColor: '#0f0f0f', color: '#fff', padding: '2rem' },
-  header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' },
-  title: { color: '#e63946', margin: 0 },
-  backBtn: { backgroundColor: '#333', color: '#fff', border: 'none', padding: '8px 16px', borderRadius: '6px', cursor: 'pointer' },
-  form: { display: 'flex', gap: '1rem', marginBottom: '2rem' },
-  input: { flex: 1, padding: '10px', borderRadius: '6px', border: '1px solid #333', backgroundColor: '#2a2a2a', color: '#fff', fontSize: '1rem' },
-  button: { padding: '10px 20px', backgroundColor: '#e63946', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' },
-  loading: { color: '#aaa', textAlign: 'center' },
-  results: { display: 'flex', flexDirection: 'column', gap: '1rem' },
-  card: { display: 'flex', gap: '1rem', backgroundColor: '#1a1a1a', borderRadius: '12px', padding: '1rem' },
-  image: { width: '80px', height: '110px', objectFit: 'cover', borderRadius: '6px' },
-  info: { flex: 1 },
-  animTitle: { margin: '0 0 4px', color: '#fff' },
-  meta: { color: '#aaa', fontSize: '0.85rem', margin: '0 0 8px' },
-  synopsis: { color: '#ccc', fontSize: '0.85rem', margin: '0 0 8px' },
-  cardButtons: { display: 'flex', gap: '0.5rem' },
-  addBtn: { padding: '6px 12px', backgroundColor: '#e63946', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' },
-  detailBtn: { padding: '6px 12px', backgroundColor: '#333', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }
 }
 
 export default Search

@@ -132,3 +132,111 @@
   margin: 4px 0 0;
   font-style: italic;
 }
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.edit-btn {
+  padding: 5px 10px;
+  background-color: #457b9d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.edit-btn:hover {
+  background-color: #1d3557;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.delete-btn:hover {
+  background-color: #c1121f;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit-label {
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.edit-select {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.edit-input {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.edit-textarea {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 0.85rem;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.save-btn {
+  padding: 5px 10px;
+  background-color: #2a9d8f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.save-btn:hover {
+  background-color: #1b7a6e;
+}
+
+.cancel-btn {
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cancel-btn:hover {
+  background-color: #444;
+}
