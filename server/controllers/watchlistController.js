@@ -17,6 +17,16 @@ const getWatchlist = async (req, res) => {
 const addToWatchlist = async (req, res) => {
   const { user_id, anime_id, status } = req.body
   try {
+    const { data: existing } = await supabase
+      .from('anime_list')
+      .select('*')
+      .eq('user_id', user_id)
+      .eq('anime_id', anime_id)
+
+    if (existing && existing.length > 0) {
+      return res.status(400).json({ error: 'Anime already in your watchlist' })
+    }
+
     const { data, error } = await supabase
       .from('anime_list')
       .insert([{ user_id, anime_id, status }])

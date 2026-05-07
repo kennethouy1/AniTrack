@@ -15,14 +15,21 @@ function Dashboard() {
   })
   const navigate = useNavigate()
   const user_id = localStorage.getItem('user_id')
+  const token = localStorage.getItem('token')
 
   useEffect(() => {
+    if (!token) {
+      navigate('/')
+      return
+    }
     fetchWatchlist()
   }, [])
 
   const fetchWatchlist = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/watchlist/${user_id}`)
+      const res = await axios.get(`http://localhost:5000/api/watchlist/${user_id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
       setWatchlist(res.data)
     } catch (err) {
       console.error(err)
@@ -33,7 +40,9 @@ function Dashboard() {
   const handleDelete = async (id) => {
     if (!window.confirm('Remove this anime from your watchlist?')) return
     try {
-      await axios.delete(`http://localhost:5000/api/watchlist/${id}`)
+      await axios.delete(`http://localhost:5000/api/watchlist/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
       setWatchlist(watchlist.filter(item => item.id !== id))
     } catch (err) {
       alert('Failed to delete')
@@ -52,7 +61,9 @@ function Dashboard() {
 
   const handleUpdate = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/watchlist/${id}`, editForm)
+      await axios.put(`http://localhost:5000/api/watchlist/${id}`, editForm, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
       setEditingId(null)
       fetchWatchlist()
     } catch (err) {

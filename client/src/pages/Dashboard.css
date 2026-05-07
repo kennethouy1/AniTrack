@@ -240,3 +240,8 @@
 .cancel-btn:hover {
   background-color: #444;
 }
+
+.card-status.plan_to_watch {
+  background-color: #f4a261;
+  color: #fff;
+}

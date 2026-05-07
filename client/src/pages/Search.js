@@ -22,18 +22,21 @@ function Search() {
   }
 
   const handleAdd = async (anime_id) => {
-    const user_id = localStorage.getItem('user_id')
-    try {
-      await axios.post('http://localhost:5000/api/watchlist', {
-        user_id,
-        anime_id,
-        status: 'watching'
-      })
-      alert('Added to watchlist!')
-    } catch (err) {
-      alert('Failed to add to watchlist')
-    }
+  const user_id = localStorage.getItem('user_id')
+  const token = localStorage.getItem('token')
+  try {
+    await axios.post('http://localhost:5000/api/watchlist', {
+      user_id,
+      anime_id,
+      status: 'watching'
+    }, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    alert('Added to watchlist!')
+  } catch (err) {
+    alert(err.response?.data?.error || 'Failed to add to watchlist')
   }
+}
 
   return (
     <div className="search-container">
