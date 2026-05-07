@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './Search.css'
 
+
 function Search() {
+  const [message, setMessage] = useState('')
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
@@ -32,10 +34,11 @@ function Search() {
     }, {
       headers: { Authorization: `Bearer ${token}` }
     })
-    alert('Added to watchlist!')
+    setMessage('Added to watchlist!')
   } catch (err) {
-    alert(err.response?.data?.error || 'Failed to add to watchlist')
+    setMessage(err.response?.data?.error || 'Failed to add to watchlist')
   }
+  setTimeout(() => setMessage(''), 3000)
 }
 
   return (
@@ -45,6 +48,7 @@ function Search() {
         <button className="search-back-btn" onClick={() => navigate('/dashboard')}>Back to Dashboard</button>
       </div>
       <form onSubmit={handleSearch} className="search-form">
+        {message && <p className="search-message">{message}</p>}
         <input
           className="search-input"
           type="text"

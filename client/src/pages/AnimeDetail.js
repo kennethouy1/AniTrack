@@ -3,7 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './AnimeDetail.css'
 
+
 function AnimeDetail() {
+  const [message, setMessage] = useState('')
   const { id } = useParams()
   const navigate = useNavigate()
   const [anime, setAnime] = useState(null)
@@ -33,10 +35,11 @@ function AnimeDetail() {
     }, {
       headers: { Authorization: `Bearer ${token}` }
     })
-    alert('Added to watchlist!')
+    setMessage('Added to watchlist!')
   } catch (err) {
-    alert(err.response?.data?.error || 'Failed to add to watchlist')
+    setMessage(err.response?.data?.error || 'Failed to add to watchlist')
   }
+  setTimeout(() => setMessage(''), 3000)
 }
   if (loading) return <div className="detail-loading">Loading...</div>
   if (!anime) return <div className="detail-loading">Anime not found</div>
@@ -44,6 +47,7 @@ function AnimeDetail() {
   return (
     <div className="detail-container">
       <button className="detail-back-btn" onClick={() => navigate(-1)}>← Back</button>
+      {message && <p className="detail-message">{message}</p>}
       <div className="detail-hero">
         <img src={anime.images.jpg.large_image_url} alt={anime.title} className="detail-image" />
         <div className="detail-info">

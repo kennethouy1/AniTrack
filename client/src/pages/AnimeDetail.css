@@ -95,3 +95,12 @@
   border-radius: 8px;
   border: none;
 }
+
+.detail-message {
+  margin-top: 0.75rem;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #1a1a1a;
+  color: #2a9d8f;
+  font-size: 0.9rem;
+}

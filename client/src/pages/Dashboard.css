@@ -114,6 +114,11 @@
   color: #fff;
 }
 
+.card-status.plan_to_watch {
+  background-color: #f4a261;
+  color: #fff;
+}
+
 .card-episodes {
   color: #ccc;
   font-size: 0.85rem;
@@ -165,6 +170,45 @@
 
 .delete-btn:hover {
   background-color: #c1121f;
+}
+
+.confirm-delete {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #e63946;
+  font-weight: 500;
+}
+
+.confirm-yes-btn {
+  padding: 5px 10px;
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.confirm-yes-btn:hover {
+  background-color: #c1121f;
+}
+
+.confirm-no-btn {
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.confirm-no-btn:hover {
+  background-color: #444;
 }
 
 .edit-form {
@@ -241,7 +285,33 @@
   background-color: #444;
 }
 
-.card-status.plan_to_watch {
-  background-color: #f4a261;
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+}
+
+.card-title {
   color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  cursor: pointer;
+}
+
+.card-title:hover {
+  color: #e63946;
+}
+
+.dashboard-message {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #1a1a1a;
+  color: #2a9d8f;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }

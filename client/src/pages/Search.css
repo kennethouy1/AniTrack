@@ -138,3 +138,13 @@
 .search-detail-btn:hover {
   background-color: #444;
 }
+
+.search-message {
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background-color: #1a1a1a;
+  color: #2a9d8f;
+  font-size: 0.9rem;
+}
