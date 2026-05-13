@@ -31,14 +31,9 @@ AniTrack is a full-stack anime tracking web application that allows users to sea
 ### API
 - Jikan API/SUPABASE
 
-Navigate to Client and Server files, install dependencies, and enter npm start/npm run dev respectively for each file
+CD to Client and Server files, install dependencies, and enter npm start/npm run dev respectively for each file
 NOTE- Loading anime may take a while due to JIKAN API rate limits 
 
 
 
-Navigate to the `Client` folder, install dependencies, and start the frontend server:
 
-```bash
-cd Client
-npm install
-npm start
